@@ -4,8 +4,8 @@ import itertools
 #import numpy as np
 #import statistics
 os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
-input = open("input8.txt").readlines()
-#input = open("input8 copy.txt").readlines()
+input = open("input9.txt").readlines()
+#input = open("input9 copy.txt").readlines()
 
 zero = [0,1,2,4,5,6]
 one = [2,5]
@@ -36,6 +36,7 @@ def find_key(line, p):
     pos = p.copy()
     fivec = ''
     sixc = ''
+
     for y in line:
         if len(y) == 2:
             pos = update(y,pos, [2,5])
@@ -48,13 +49,35 @@ def find_key(line, p):
         elif len(y) == 6:
             sixc += y
 
-    pos = update(list(dict.fromkeys([value for value in fivec if fivec.count(value) == 1])),pos,[1,4])
-    pos = update(list(dict.fromkeys([value for value in fivec if fivec.count(value) == 2])),pos,[2,5])
-    pos = update(list(dict.fromkeys([value for value in fivec if fivec.count(value) == 3])),pos,[0,3,6])
+    five1 = ''
+    five2 = ''
+    five3 = ''
+    six2 = ''
+    six3 = ''
+    for i in pos[6]:
+        if fivec.count(i) == 1:
+            five1 += i
+        elif fivec.count(i) == 2:
+            five2 += i
+        elif fivec.count(i) == 3:
+            five3 += i
+        else:
+            print('beeeep')
+            
+        if sixc.count(i) == 2:
+            six2 += i
+        elif sixc.count(i) == 3:
+            six3 += i
+        else:
+            print('boooop')
 
-    pos = update(list(dict.fromkeys([value for value in sixc if sixc.count(value) == 2])),pos,[2,3,4])
-    pos = update(list(dict.fromkeys([value for value in sixc if sixc.count(value) == 3])),pos,[0,1,5,6])
+    pos = update(five1,pos, [1,4])
+    pos = update(five2,pos, [2,5])
+    pos = update(five3,pos, [0,3,6])
+    pos = update(six2,pos, [2,3,4])
+    pos = update(six3,pos, [0,1,5,6])
 
+    
     for i in range(len(pos)):
         if len(pos[i]) != 1:
             for y in pos[i]:

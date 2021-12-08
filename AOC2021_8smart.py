@@ -47,13 +47,11 @@ def find_key(line, p):
             fivec += y
         elif len(y) == 6:
             sixc += y
-
-    pos = update(list(dict.fromkeys([value for value in fivec if fivec.count(value) == 1])),pos,[1,4])
-    pos = update(list(dict.fromkeys([value for value in fivec if fivec.count(value) == 2])),pos,[2,5])
-    pos = update(list(dict.fromkeys([value for value in fivec if fivec.count(value) == 3])),pos,[0,3,6])
-
-    pos = update(list(dict.fromkeys([value for value in sixc if sixc.count(value) == 2])),pos,[2,3,4])
-    pos = update(list(dict.fromkeys([value for value in sixc if sixc.count(value) == 3])),pos,[0,1,5,6])
+    pos = update([value for value in fivec if fivec.count(value) == 1],pos,[1,4])
+    pos = update([value for value in fivec if fivec.count(value) == 2],pos,[2,5])
+    pos = update([value for value in fivec if fivec.count(value) == 3],pos,[0,3,6])
+    pos = update([value for value in sixc if sixc.count(value) == 2],pos,[2,3,4])
+    pos = update([value for value in sixc if sixc.count(value) == 3],pos,[0,1,5,6])
 
     for i in range(len(pos)):
         if len(pos[i]) != 1:
