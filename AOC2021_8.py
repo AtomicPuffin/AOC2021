@@ -7,8 +7,8 @@ os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = open("input8.txt").readlines()
 #input = open("input8 copy.txt").readlines()
 
-counter = 0
-uniques = [2,3,4,7]
+'''counter = 0
+uniques = [2,3,4,7]'''
 
 zero = [0,1,2,4,5,6]
 one = [2,5]
@@ -103,16 +103,3 @@ for i in read_lines(input):
     total += decode(i,k)
 
 print(total)
-
-'''l = read_lines(input)
-#print (l[0])
-#p = decode(l[0], possibilities)
-print (find_key(l[0], possibilities))
-print(decode(l[0][11:15], find_key(l[0], possibilities)))'''
-
-
-
-
-#print(sorted(l[0][0]))
-#print(sorted([possibilities[0][1],possibilities[0][2],possibilities[0][3],possibilities[0][5]]))
-
