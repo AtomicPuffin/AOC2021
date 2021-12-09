@@ -19,7 +19,6 @@ eight = [0,1,2,3,4,5,6]
 nine = [0,1,2,3,5,6]
 
 numbers = [zero, one,two,three,four,five,six,seven,eight,nine]
-full_set = ['a','b','c','d','e','f','g']
 
 possibilities = [['a','b','c','d','e','f','g'] for x in range(7)]
 
