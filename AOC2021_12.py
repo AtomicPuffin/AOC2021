@@ -39,7 +39,7 @@ def buildTree(cmap, forest, path, node):
                 buildTree(cmap,forest,p2,i)
 
 '''
-
+'''
 #buid tree structure recursively
 #add magic for single time burn to tree
 def buildTree(cmap, forest, path, node, magic):
@@ -53,18 +53,34 @@ def buildTree(cmap, forest, path, node, magic):
                 buildTree(cmap,forest,p2,i, magic)
             elif i not in path:
                 buildTree(cmap,forest,p2,i, magic)                
-            elif magic == '' and i != 'start':
-                buildTree(cmap,forest,p2,i,'####')
+            elif magic and i != 'start':
+                buildTree(cmap,forest,p2,i,False)
+
+'''
 
 
 
-forest = []
+def buildTree(cmap, path, node, magic):
+    p2 = path.copy()
+    p2.append(node)
+    if node == 'end':
+        return p2
+    for i in cmap[node]:
+        if not i.islower():
+            return buildTree(cmap,p2,i, magic)
+        elif i not in path:
+            return buildTree(cmap,p2,i, magic)                
+        elif magic and i != 'start':
+            return buildTree(cmap,p2,i,False)
+
+
+#forest = []
 
 m = buildMap(input)
 
 #print(m)
 
-buildTree(m,forest,[],'start','')
+forest = [buildTree(m,[],'start',True)]
 
 #print(forest)
 
