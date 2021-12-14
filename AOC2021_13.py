@@ -5,10 +5,9 @@ import itertools
 #import numpy as np
 #import statistics
 os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
-input = open("input13.txt").readlines()
+#input = open("input13.txt").readlines()
 #input = open("input13 copy.txt").readlines()
-
-
+input = open("input13 big.txt").readlines()
 
 def readLines(lines):
     coord = []
@@ -20,7 +19,6 @@ def readLines(lines):
     return coord, folds
         
 
-
 def boardSize(dts):
     mY = 0
     mX = 0
@@ -28,6 +26,7 @@ def boardSize(dts):
         mY = max(mY,i[1])
         mX = max(mX,i[0])
     return mY,mX
+
 
 def fold(dts, line):
     if line[0] == 'y':
@@ -40,6 +39,7 @@ def fold(dts, line):
                 dts[i] = (2*line[1]-dts[i][0], dts[i][1])
     dts = list(dict.fromkeys(dts))
     return dts
+
 
 def visualize(dots,x,y):
     outLines = []
@@ -56,6 +56,7 @@ def visualize(dots,x,y):
 
 dots, folds = readLines(input)
 maxY, maxX = boardSize(dots)
+
 
 for i in folds:
     dots = fold(dots,i)
