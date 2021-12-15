@@ -78,7 +78,7 @@ def buildTree(cmap, path, node, magic):
 
 m = buildMap(input)
 
-#print(m)
+print(m)
 
 forest = [buildTree(m,[],'start',True)]
 
