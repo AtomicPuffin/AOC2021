@@ -56,7 +56,7 @@ inp = [i.rstrip() for i in input]
 cmap, end, maximum = buildMap(inp, 4)
 nv = PriorityQueue()
 nv.put((0,(0,0)))
-nv.put((maximum*2,end)) #fick skumma buggar n'r k'n blev tom f;rsta v'ndan, la till sp'ke
+nv.put((maximum*2,end)) #queue bugs if empty after first iteration, added ghost element
 
 while not nv.empty():
     node = nv.get()
