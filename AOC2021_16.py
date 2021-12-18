@@ -49,7 +49,6 @@ def hexToBin(lines):
 
 #parses one package into data and subpackets
 def readPackage(pack):
-    ver = int(pack[:3],2)
     tID = int(pack[3:6],2)
     pack = pack[6:]
 
@@ -63,7 +62,6 @@ def readPackage(pack):
         val = int(val,2)
         return val, pack
     else: # operator
-        versum = 0
         val = []
         if pack[0] == '0': # 15 bits tell number of bits
             pack = pack[1:]
@@ -73,7 +71,6 @@ def readPackage(pack):
             pack = pack[dataRange:]
             while len(data) > 6:
                 n,data = readPackage(data)
-                #versum += vs + v
                 val.append(n)
             val = operate(val,tID)
             return val, pack
@@ -84,7 +81,6 @@ def readPackage(pack):
             data = pack
             for _ in range(dataRange):
                 n,data = readPackage(data)
-                #versum += vs + v
                 val.append(n)
             val = operate(val,tID)
             return val, data
@@ -107,15 +103,16 @@ def operate(val,tID):
 
 
 binIn = hexToBin(input)
-#print(binIn)
+print(binIn)
 n,data = readPackage(binIn)
 print(n)
 #print(vs+v)
 
 
 
-'''
 
+'''
+#Part one solution
 #parses one package into data and subpackets
 def readPackage(pack):
     ver = int(pack[:3],2)
