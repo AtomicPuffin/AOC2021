@@ -25,23 +25,17 @@ trans = [['x','y','-z'],['x','-z','-y'],['x','-y','z'],['x','z','y'],
         ['-y','z','x'],['-y','x','-z'],['-y','-z','-x'],['-y','-x','z'],
         ['z','y','x'],['z','x','-y'],['z','-y','-x'],['z','-x','y'],
         ['-z','y','-x'],['-z','-x','-y'],['-z','-y','x'],['-z','x','y']]
-'''
-perms = [[x,y,-z],[x,-z,-y],[x,-y,z],[x,z,y],[-x,y,z],[-x,z,-y],[-x,-y,-z],[-x,-z,y],
-                        [y,z,-x],[y,-x,-z],[y,-z,x],[y,x,z],[-y,z,x],[-y,x,-z],[-y,-z,-x],[-y,-x,z],
-                        [z,y,x],[z,x,-y],[z,-y,-x],[z,-x,y],[-z,y,-x],[-z,-x,-y],[-z,-y,x],[-z,x,y]]
-'''
+
+
 class Scanner:
     def __init__(self, id, beacons, coord=(0,0,0), key=[], found=False):
         self.id = id
         self.beacons = beacons
-        self.xs = [i[0] for i in beacons]
-        self.ys = [i[1] for i in beacons]
-        self.zs = [i[2] for i in beacons]
         self.coord = coord
         self.key = key
         self.found = found
 
-def parse(lines): # find scanner number, list of beacons, repeats
+def parse(lines): # find scanner number, list of beacons, repeat
     scanners = []
     no = 0
     beacons = []
@@ -58,7 +52,7 @@ def parse(lines): # find scanner number, list of beacons, repeats
     scanners.append(Scanner(no,beacons))
     return scanners
 
-def transp(perm, beac):
+def transp(perm, beac): # rotate vector
     res = []
     for i in range(3):
         if perm[i] == 'x':
@@ -75,7 +69,7 @@ def transp(perm, beac):
             res.append(-beac[2])
     return res
 
-def overlap(deltas): 
+def overlap(deltas): # after calculating all beacon deltas, find any delta present 12 or more times
     cs = {}
     for i in deltas:
         if i in cs:
@@ -85,7 +79,7 @@ def overlap(deltas):
     a = max(cs, key=lambda key: cs[key])
     return a, cs[a]
 
-def delta(s1,s2):
+def delta(s1,s2): # for each rotation, find all deltas between two scanners, return rotation and delta if found
     if s2.found:
         return [], []
     for i in trans:
@@ -101,7 +95,7 @@ def delta(s1,s2):
             return i, t1
     return [], []
 
-def alignToZero(scan, key, pos):
+def alignToZero(scan, key, pos): # align all beacons to origin rotation, updtae scanner
     scan.coord = pos
     scan.found = True
     scan.key = key
@@ -113,7 +107,7 @@ def alignToZero(scan, key, pos):
 def manhattan(a, b):
     return sum(a[i]-b[i] for i in range(3))
 
-def mapping(scanners):
+def mapping(scanners): # iterate to match all scanners to a found scanner
     manlist = []
     done = False
     while not done:
