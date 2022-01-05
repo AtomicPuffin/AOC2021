@@ -1,6 +1,5 @@
 import os
-import sys
-#import numpy as np
+
 os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = open("input5.txt").readlines()
 #input = open("input5ex.txt").readlines()
@@ -96,17 +95,11 @@ def count(seamap):
 
 
 ventlines = read_lines(input)
-#print(ventlines)
 seamap = create_sea()
 ventlinesV = filter_lines_v(ventlines)
 ventlinesD = filter_lines_d(ventlines)
 update_v(ventlinesV,seamap)
 update_d(ventlinesD,seamap)
 
-
-
-#print(ventlinesV)
-#print(ventlinesD)
-#print(seamap)
 print(count(seamap))
 

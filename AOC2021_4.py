@@ -1,6 +1,5 @@
 import os
-import sys
-#import numpy as np
+
 os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = open("input4.txt").readlines()
 
@@ -9,11 +8,8 @@ bricks = []
 def read_draws(row):
     return [int(i) for i in row.split(",")]
 
-def read_row (row):
-    temp = []
-    for i in row:
-        temp.append([int(i),False])
-    return temp
+def read_row(row):
+    return [[int(i),False] for i in row]
 
 def read_bricks (raw_input):
     temp = []
@@ -39,10 +35,13 @@ def check_row(row):
     return bool(row[0][1] and row[1][1] and row[2][1] and row[3][1] and row[4][1])
 
 def check(brick):
-    for i in range(5):
-        if check_row(brick[i]) or check_row([brick[0][i],brick[1][i],brick[2][i],brick[3][i],brick[4][i]]):
-            return True
-    return False
+    return any(
+        check_row(brick[i])
+        or check_row(
+            [brick[0][i], brick[1][i], brick[2][i], brick[3][i], brick[4][i]]
+        )
+        for i in range(5)
+    )
 
 def final_calc(brick, numb):
     temp = 0
@@ -65,13 +64,6 @@ def bingo(dra, brick):
     return("no winner")
 
 print(bingo(draws,bricks))
-
-#temp = update(bricks[0],57)
-#print(temp)
-
-
-#print(draws)
-#print(bricks)
 
 
 

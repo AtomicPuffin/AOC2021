@@ -1,8 +1,5 @@
 import os
-import sys
-import itertools
-#import numpy as np
-#import statistics
+
 os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = open("input8.txt").readlines()
 #input = open("input8 copy.txt").readlines()
@@ -19,7 +16,6 @@ eight = [0,1,2,3,4,5,6]
 nine = [0,1,2,3,5,6]
 
 numbers = [zero, one,two,three,four,five,six,seven,eight,nine]
-full_set = ['a','b','c','d','e','f','g']
 
 possibilities = [['a','b','c','d','e','f','g'] for x in range(7)]
 
@@ -51,7 +47,6 @@ def find_key(line, p):
     pos = update(list(dict.fromkeys([value for value in fivec if fivec.count(value) == 1])),pos,[1,4])
     pos = update(list(dict.fromkeys([value for value in fivec if fivec.count(value) == 2])),pos,[2,5])
     pos = update(list(dict.fromkeys([value for value in fivec if fivec.count(value) == 3])),pos,[0,3,6])
-
     pos = update(list(dict.fromkeys([value for value in sixc if sixc.count(value) == 2])),pos,[2,3,4])
     pos = update(list(dict.fromkeys([value for value in sixc if sixc.count(value) == 3])),pos,[0,1,5,6])
 
@@ -61,8 +56,6 @@ def find_key(line, p):
                 if [y] in pos:
                     pos[i].remove(y)
                     exit
-
-
     return pos
 
 def decode(line,key):

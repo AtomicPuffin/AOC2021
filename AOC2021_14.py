@@ -1,9 +1,5 @@
 import os
-import sys
-#import itertools
-#from itertools import starmap
-#import numpy as np
-#import statistics
+
 os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = open("input14.txt").readlines()
 input2 = open("input14 copy.txt").readlines()
@@ -49,12 +45,15 @@ def calc1(end, edges):
     return result[most] - result[least]
 
 
-
 s, p, e = readLines(input)
-s2, p2, e2 = readLines(input2)
 
-end = spin(s, p, 40)
-end2 = spin(s2, p2, 40)
+#test file
+#s2, p2, e2 = readLines(input2)
+#end2 = spin(s2, p2, 40) 
+#print(calc1(end2, e2))
 
-print(calc1(end, e))
-print(calc1(end2, e2))
+part1 = spin(s, p, 10)
+part2 = spin(s, p, 40)
+
+print(calc1(part1, e))
+print(calc1(part2, e))

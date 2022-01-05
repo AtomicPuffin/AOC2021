@@ -1,14 +1,10 @@
 import os
-import sys
 import itertools
-#import numpy as np
-import statistics
+
 os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = open("input8.txt").readlines()
 #input = open("input8 copy.txt").readlines()
 
-'''counter = 0
-uniques = [2,3,4,7]'''
 
 zero = [0,1,2,4,5,6]
 one = [2,5]
@@ -26,12 +22,10 @@ numbers = [zero, one,two,three,four,five,six,seven,eight,nine]
 possibilities = list(itertools.permutations(['a','b','c','d','e','f','g']))
 
 def read_lines(lines):
-    output = []
-    for i in lines:
-        output.append(i.split())
-    return output
+    return [i.split() for i in lines]
 
-'''def count(line):
+''' Part 1
+def count(line):
     temp = 0
     for y in line[11:15]:
         if len(y) in uniques:
@@ -89,9 +83,7 @@ def find_key(line, pos):
 def decode(line,key):
     num = []
     for i in line[11:15]:
-        temp = []
-        for y in i:
-            temp.append(key[0].index(y))
+        temp = [key[0].index(y) for y in i]
         x = numbers.index(sorted(temp))
         num.append(x)
 

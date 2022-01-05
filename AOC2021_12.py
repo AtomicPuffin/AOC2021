@@ -1,14 +1,9 @@
 import os
-import sys
-import itertools
-#import numpy as np
-#import statistics
+
 os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = open("input12.txt").readlines()
 #input = open("input12 copy.txt").readlines()
 
-        # if a, b in paths, append value
-        # else append key value
 def buildMap(lines):
     cmap = {}
     for i in lines:
@@ -24,64 +19,27 @@ def buildMap(lines):
             cmap[b] = [a]
     return cmap
 
-# om node lower och redan i tree g;r inget
-# 
-
-'''
-def buildTree(cmap, forest, path, node):
+def buildTree(cmap, path, node, double):
     p2 = path.copy()
     p2.append(node)
     if node == 'end':
-        forest.append(p2)
-    else:
-        for i in cmap[node]:
-            if not i.islower() or i not in path:
-                buildTree(cmap,forest,p2,i)
-
-'''
-'''
-#buid tree structure recursively
-#add magic for single time burn to tree
-def buildTree(cmap, forest, path, node, magic):
-    p2 = path.copy()
-    p2.append(node)
-    if node == 'end':
-        forest.append(p2)
-    else:
-        for i in cmap[node]:
-            if not i.islower():
-                buildTree(cmap,forest,p2,i, magic)
-            elif i not in path:
-                buildTree(cmap,forest,p2,i, magic)                
-            elif magic and i != 'start':
-                buildTree(cmap,forest,p2,i,False)
-
-'''
-
-
-
-def buildTree(cmap, path, node, magic):
-    p2 = path.copy()
-    p2.append(node)
-    if node == 'end':
-        return p2
+        return [p2]
+    paths = []
     for i in cmap[node]:
-        if not i.islower():
-            return buildTree(cmap,p2,i, magic)
-        elif i not in path:
-            return buildTree(cmap,p2,i, magic)                
-        elif magic and i != 'start':
-            return buildTree(cmap,p2,i,False)
+        if not i.islower() or i.islower() and i not in path:
+            addNotEmpty(paths, (buildTree(cmap,p2,i,double)))
+        elif i.islower() and i in path and double and i != 'start':
+            addNotEmpty(paths, (buildTree(cmap,p2,i,False)))       
+    return paths
 
+def addNotEmpty(paths, t):
+    if t:
+        for x in range(len(t)):
+            paths.append(t[x])
 
-#forest = []
 
 m = buildMap(input)
 
-print(m)
+allPaths = buildTree(m,[],'start',True)
 
-forest = [buildTree(m,[],'start',True)]
-
-#print(forest)
-
-print(len(forest))
+print(len(allPaths))

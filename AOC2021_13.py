@@ -1,13 +1,9 @@
 import os
-import sys
-import itertools
-#from itertools import starmap
-#import numpy as np
-#import statistics
+
 os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
-#input = open("input13.txt").readlines()
+input = open("input13.txt").readlines()
 #input = open("input13 copy.txt").readlines()
-input = open("input13 big.txt").readlines()
+#input = open("input13 big.txt").readlines()
 
 def readLines(lines):
     coord = []
@@ -68,11 +64,3 @@ for i in folds:
 temp = visualize(dots,maxX, maxY)
 for i in temp:
     print(i)
-
-#dots = fold(dots,folds[0])
-#print(len(dots))
-
-#print(dots)
-#print(folds)
-#print(maxX)
-#print(maxY)

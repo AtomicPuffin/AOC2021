@@ -1,22 +1,12 @@
 import os
-import sys
-import math
-import ast
-import re
 
-from collections import Counter
-#from queue import PriorityQueue
-import itertools
-#from itertools import starmap
-import numpy as np
-#import statistics
 os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = [x.rstrip() for x in open("input20.txt").readlines()]
 input2 = [x.rstrip() for x in open("input20 copy.txt").readlines()]
 
 inp = input
 alg = inp[0]
-img = [i for i in inp[2:]]
+img = list(inp[2:])
 canvas = '.'
 
 def grow(img,g):
@@ -57,10 +47,16 @@ def count(img):
                 counter += 1
     return counter
 
-for _ in range(50):      
+# Part 1
+for _ in range(2):      
     img,canvas = improve(img,alg,canvas)    
 
 print(count(img))
 
-# increase w 2 in all directions each pass
+# Part 2
+for _ in range(48):      
+    img,canvas = improve(img,alg,canvas)    
+
+print(count(img))
+
 

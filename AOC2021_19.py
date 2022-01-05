@@ -1,24 +1,11 @@
 import os
-import sys
-import math
-import ast
 import re
 
-from collections import Counter
-#from queue import PriorityQueue
-import itertools
-#from itertools import starmap
 import numpy as np
-#import statistics
 os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = [x.rstrip() for x in open("input19.txt").readlines()]
 input2 = [x.rstrip() for x in open("input19 copy.txt").readlines()]
 
-# scanner x,y,z real position, range 1000 only sees beacons, dont know itself
-# beacon position relative to scanner
-# 12 common beacons = positioning of scanners relatively to eachother
-# scanners unaware of rotation or where they face, integer multiple of 90 on all axises, 
-#   24 different orientations
 trans = [['x','y','-z'],['x','-z','-y'],['x','-y','z'],['x','z','y'],
         ['-x','y','z'],['-x','z','-y'],['-x','-y','-z'],['-x','-z','y'],
         ['y','z','-x'],['y','-x','-z'],['y','-z','x'],['y','x','z'],
@@ -131,7 +118,7 @@ def one(scanners):
     for i in scanners:
         for y in i.beacons:
             bacon[tuple(y)] = 1
-    print(len(bacon))
+    print("Part1 answer ",len(bacon))
 
 def two(mlst):
     max = 0
@@ -142,7 +129,7 @@ def two(mlst):
                 m = manhattan(x,y)
                 if m > max:
                     max = m
-    print(max)
+    print("Part2 answer ",max)
 
 
 

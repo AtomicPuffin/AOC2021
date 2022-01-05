@@ -1,17 +1,13 @@
 import os
-import sys
-#import numpy as np
+
 os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = open("input6.txt").readlines()
 #input = open("input6ex.txt").readlines()
 
 
 def read_lines(lines):
-    output = []
     temp = lines[0].split(",")
-    for i in temp:
-        output.append(int(i))
-    return output
+    return [int(i) for i in temp]
 
 def initial_state(fishes, counter):
     for x in range(len(fishes)):
@@ -48,16 +44,8 @@ counters = [0,0,0,0,0,0,0,0,0]
 school = read_lines(input)
 counters = initial_state(school, counters)
 
-for i in range (256):
+for _ in range (256):
     update(counters)
 
-#print(counters)
 print(sum(counters))
-
-
-
-
-
-
-#print(len(school))
 

@@ -1,19 +1,8 @@
 import os
-import sys
-import itertools
-#import numpy as np
-#import statistics
+
 os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = open("input9.txt").readlines()
 #input = open("input9 copy.txt").readlines()
-
-'''def testinmap(cavefloor, y, x):
-    try:
-        cavefloor[y][x] + 1
-    except:
-        return 10
-    else:
-        return cavefloor[y][x]'''
 
 def testinmap(cavefloor, y, x):
     if x < 0 or y < 0 or x >= len(cavefloor[0]) or y >= len(cavefloor):
@@ -41,9 +30,7 @@ def expandb(cf,bas, y,x):
 def iter(cf, bas, y,x):
     if testinmap(cf,y,x) == 9:
         pass
-    elif (y,x) in bas:
-        pass
-    else:
+    elif (y, x) not in bas:
         bas.append((y,x))
         expandb(cf,bas,y,x)
 

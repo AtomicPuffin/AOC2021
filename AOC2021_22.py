@@ -1,15 +1,5 @@
 import os
-import sys
-import math
-import ast
-import re
 
-from collections import Counter
-#from queue import PriorityQueue
-import itertools
-#from itertools import starmap
-import numpy as np
-#import statistics
 os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = [x.rstrip() for x in open("input22.txt").readlines()]
 input2 = [x.rstrip() for x in open("input22 copy.txt").readlines()]
@@ -40,9 +30,14 @@ def readLines(lines):
 
 
 def overlapping(a,b): # returns True if there is overlap
-    return not (b[1][0] > a[1][1] or b[1][1] < a[1][0] or
-            b[2][0] > a[2][1] or b[2][1] < a[2][0] or
-            b[3][0] > a[3][1] or b[3][1] < a[3][0])
+    return (
+        b[1][0] <= a[1][1]
+        and b[1][1] >= a[1][0]
+        and b[2][0] <= a[2][1]
+        and b[2][1] >= a[2][0]
+        and b[3][0] <= a[3][1]
+        and b[3][1] >= a[3][0]
+    )
 
 def intersection(a,b): # returns the intersection of a and b, last element reversed from i
     x1 = max(a[1][0], b[1][0])
@@ -54,20 +49,22 @@ def intersection(a,b): # returns the intersection of a and b, last element rever
     return (0,(x1,x2),(y1,y2),(z1,z2),-1*a[-1])
 
 def count(cubes): # counts volume of all cubes, adds or subtracts depending on last flag
-    s = 0
-    for i in cubes:
-        s += (i[1][1] - i[1][0]+1) * (i[2][1] - i[2][0]+1) * (i[3][1] - i[3][0]+1)*i[-1]
-    return s
+    return sum(
+        (i[1][1] - i[1][0] + 1)
+        * (i[2][1] - i[2][0] + 1)
+        * (i[3][1] - i[3][0] + 1)
+        * i[-1]
+        for i in cubes
+    )
 
-steps = readLines(input)
+#steps = readLines(input[:20]) # part 1
+steps = readLines(input) # part 2
+
 cubes = [steps.pop(0)]
 
 while steps:
     step = steps.pop(0)
-    res = []
-    for cube in cubes:
-        if overlapping(cube,step):
-            res.append(intersection(cube,step))
+    res = [intersection(cube,step) for cube in cubes if overlapping(cube,step)]
     if step[0] == 1:
         res.append(step)
     cubes += res

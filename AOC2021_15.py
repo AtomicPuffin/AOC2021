@@ -1,18 +1,10 @@
 import os
-import sys
 from queue import PriorityQueue
-#import itertools
-#from itertools import starmap
-#import numpy as np
-#import statistics
+
 os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = open("input15.txt").readlines()
 input2 = open("input15 copy.txt").readlines()
 #input2 = ['1163751742']
-
-# cmap {(y,x): local cost, distance to origin, visited}
-# nv priority queue
-
 
 # builds map with n copies
 def buildMap(inp, n):

@@ -1,9 +1,6 @@
 import os
-import sys
 os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
-#print(os.getcwd())
 
-#print(open("input2.txt").readlines())
 
 power = open("input3.txt").readlines()
 counter = 0
@@ -22,11 +19,11 @@ epsilon_bin = ""
 
 for i in counts:
     if i > counter/2:
-        gamma_bin = gamma_bin + "1"
-        epsilon_bin = epsilon_bin + "0"
+        gamma_bin += "1"
+        epsilon_bin += "0"
     else:
-        gamma_bin = gamma_bin + "0"
-        epsilon_bin = epsilon_bin + "1"
+        gamma_bin += "0"
+        epsilon_bin += "1"
 
 print(gamma_bin)
 print(epsilon_bin)

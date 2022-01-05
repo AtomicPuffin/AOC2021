@@ -1,16 +1,8 @@
 import os
-import sys
-import math
-#from queue import PriorityQueue
-import itertools
-#from itertools import starmap
-#import numpy as np
-#import statistics
+
 os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 #input = [x.rstrip() for x in open("input17.txt").readlines()]
 #input2 = [x.rstrip() for x in open("input17 copy.txt").readlines()]
-input = 'x=235..259, y=-118..-62'
-input2 = 'x=20..30, y=-10..-5'
 
 target = ((235,259),(-62,-118))
 target2 = ((20,30),(-5,-10))
@@ -80,8 +72,8 @@ def iter2(target, perm):
 
 t = target
 
-listX = [i for i in range(t[0][1]+1)]
-listY = [i for i in range(abs(t[1][1]),t[1][1]-1,-1)]
+listX = list(range(t[0][1]+1))
+listY = list(range(abs(t[1][1]),t[1][1]-1,-1))
 
 perm = []
 for x in listX:
@@ -94,4 +86,3 @@ print(iter(t, perm))
 # part 2
 print(len(iter2(t, perm)))
 
-#print(findPeak(t,6,9))

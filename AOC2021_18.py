@@ -1,13 +1,7 @@
-from io import DEFAULT_BUFFER_SIZE
 import os
-import sys
 import math
 import ast
-#from queue import PriorityQueue
-import itertools
-#from itertools import starmap
-#import numpy as np
-#import statistics
+
 os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = [x.rstrip() for x in open("input18.txt").readlines()]
 input2 = [x.rstrip() for x in open("input18 copy.txt").readlines()]
@@ -143,54 +137,4 @@ res = Snailnum(inp.pop(0))
 for i in inp:
     res = res + Snailnum(i)
 print(res.magnitude())
-
-
-
-'''
-magtest = Snailnum([[1,2],[[3,4],5]])
-print(magtest.magnitude())
-
-'''
-
-'''
-c = Snailnum([[[[[4,3],4],4],[7,[[8,4],9]]],[1,1]])
-c.explode()
-print(c)
-c.split()
-print(c)
-c.explode()
-print(c)
-
-'''
-''' 
-#Test Explode
-exptest = Snailnum([[[[[9,8],1],2],3],4])
-exptest.explode()
-print(exptest)
-exptest = Snailnum([7,[6,[5,[4,[3,2]]]]])
-exptest.explode()
-print(exptest)
-exptest = Snailnum([[6,[5,[4,[3,2]]]],1])
-exptest.explode()
-print(exptest)
-exptest = Snailnum([[3,[2,[1,[7,3]]]],[6,[5,[4,[3,2]]]]])
-exptest.explode()
-print(exptest)
-
-'''
-
-'''
-# Test Split
-exptest = Snailnum([[[[0,7],4],[15,[0,13]]],[1,1]])
-exptest.split()
-print(exptest)
-exptest = Snailnum([[[[0,7],4],[[7,8],[0,13]]],[1,1]])
-exptest.split()
-print(exptest)
-
-'''
-
-
-
-
 

@@ -1,11 +1,6 @@
 import os
-import sys
 import math
-#from queue import PriorityQueue
-#import itertools
-#from itertools import starmap
-#import numpy as np
-#import statistics
+
 os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = [x.rstrip() for x in open("input16.txt").readlines()]
 input2 = [x.rstrip() for x in open("input16 copy.txt").readlines()]
@@ -28,18 +23,6 @@ hexBin = {'0' : '0000',
         'D' : '1101',
         'E' : '1110',
         'F' : '1111'}
-'''
-class Package:
-    def __init__(self,ver,tID,cbit=2,val=0,tail=[]):
-        self.ver = ver
-        self.tID = tID
-        self.cbit = cbit
-        self.val = val
-        self.tail = tail
-
-    def parse(pack):
-'''
-
 
 #translate hex file to bin file
 def hexToBin(lines):
@@ -103,12 +86,8 @@ def operate(val,tID):
 
 
 binIn = hexToBin(input)
-print(binIn)
 n,data = readPackage(binIn)
 print(n)
-#print(vs+v)
-
-
 
 
 '''
