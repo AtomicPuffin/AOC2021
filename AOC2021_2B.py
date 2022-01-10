@@ -1,6 +1,3 @@
-import os
-os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
-
 plan = open("input2.txt").readlines()
 distance = 0
 depth = 0

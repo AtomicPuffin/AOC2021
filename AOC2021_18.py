@@ -1,8 +1,6 @@
-import os
 import math
 import ast
 
-os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = [x.rstrip() for x in open("input18.txt").readlines()]
 input2 = [x.rstrip() for x in open("input18 copy.txt").readlines()]
 

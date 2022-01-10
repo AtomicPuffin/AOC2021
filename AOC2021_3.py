@@ -1,7 +1,3 @@
-import os
-os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
-
-
 power = open("input3.txt").readlines()
 counter = 0
 counts = [0,0,0,0,0,0,0,0,0,0,0,0]

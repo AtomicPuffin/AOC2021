@@ -1,6 +1,3 @@
-import os
-os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
-
 power = open("input3.txt").readlines()
 
 def max_binary(input, counter, counts):

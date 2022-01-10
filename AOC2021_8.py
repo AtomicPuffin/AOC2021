@@ -1,7 +1,5 @@
-import os
 import itertools
 
-os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = open("input8.txt").readlines()
 #input = open("input8 copy.txt").readlines()
 

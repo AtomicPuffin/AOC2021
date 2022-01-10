@@ -1,6 +1,3 @@
-import os
-os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
-
 measurements = open("input1.txt").readlines()
 prev = 999999
 counter = 0

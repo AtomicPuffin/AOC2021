@@ -1,7 +1,5 @@
-import os
 from queue import PriorityQueue
 
-os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = open("input15.txt").readlines()
 input2 = open("input15 copy.txt").readlines()
 #input2 = ['1163751742']

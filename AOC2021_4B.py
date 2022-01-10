@@ -1,6 +1,3 @@
-import os
-
-os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = open("input4.txt").readlines()
 
 def read_draws(row):

@@ -1,8 +1,6 @@
-import os
 import copy
 from queue import PriorityQueue
 
-os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = [x.rstrip() for x in open("input23.txt").readlines()]
 input2 = [x.rstrip() for x in open("input23 copy.txt").readlines()]
 input3 = [x.rstrip() for x in open("input23 copy 2.txt").readlines()]

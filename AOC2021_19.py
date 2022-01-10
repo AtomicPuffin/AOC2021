@@ -1,8 +1,6 @@
-import os
 import re
-
 import numpy as np
-os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
+
 input = [x.rstrip() for x in open("input19.txt").readlines()]
 input2 = [x.rstrip() for x in open("input19 copy.txt").readlines()]
 

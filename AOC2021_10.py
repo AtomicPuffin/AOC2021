@@ -1,6 +1,3 @@
-import os
-
-os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = open("input10.txt").readlines()
 #input = open("input10 copy.txt").readlines()
 

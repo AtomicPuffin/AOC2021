@@ -1,6 +1,3 @@
-import os
-
-os.chdir("/Users/andreas/Documents/GitHub/AOC2021/")
 input = [x.rstrip() for x in open("input25.txt").readlines()]
 input2 = [x.rstrip() for x in open("input25 copy.txt").readlines()]
 
